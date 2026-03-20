@@ -96,6 +96,104 @@
 
         <div class="page" id="p3">
             <div class="icon">🦋</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Surprise for You ❤️</title>
+    <style>
+        :root {
+            --primary-pink: #ff758c;
+            --secondary-pink: #ff7eb3;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--primary-pink) 0%, var(--secondary-pink) 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            color: white;
+            text-align: center;
+        }
+
+        .container {
+            width: 85%;
+            max-width: 400px;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 40px 20px;
+            border-radius: 30px;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+        }
+
+        .page {
+            display: none; /* Hidden by default */
+            animation: slideIn 0.5s ease-out;
+        }
+
+        .active {
+            display: block; /* Show current page */
+        }
+
+        h2 { font-size: 2rem; margin-bottom: 15px; }
+        p { font-size: 1.1rem; line-height: 1.6; min-height: 80px; }
+
+        .icon { font-size: 60px; margin-bottom: 20px; }
+
+        .btn {
+            background: white;
+            color: var(--primary-pink);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: 0.3s;
+            margin-top: 20px;
+        }
+
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+
+        /* Floating Hearts Animation */
+        .hearts-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: -1; }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hearts-bg" id="hearts-bg"></div>
+
+    <div class="container">
+        <div class="page active" id="p1">
+            <div class="icon">☀️</div>
+            <h2>Utho Mere Chand!</h2>
+            <p>Duniya ne aankhein khol li hain, bas aapki muskurahat ka intezar hai. Good Morning, Love!</p>
+            <button class="btn" onclick="nextPage(2)">Next Surprise ✨</button>
+        </div>
+
+        <div class="page" id="p2">
+            <div class="icon">☕</div>
+            <h2>Ek Garam Chai...</h2>
+            <p>Kaash main wahan hota aapko ye coffe aur ek pyari si 'Good Morning Hug' dene ke liye. Miss you!</p>
+            <button class="btn" onclick="nextPage(3)">Aage Dekho 👉</button>
+        </div>
+
+        <div class="page" id="p3">
+            <div class="icon">🦋</div>
             <h2>You are Magical</h2>
             <p>Jaise subah ki pehli kiran phoolon ko jagaati hai, waise hi aapka khayal mere din ko roshan kar deta hai.</p>
             <button class="btn" onclick="nextPage(4)">Ek Aur Baat... ❤️</button>
@@ -112,7 +210,7 @@
             <div class="icon">💝</div>
             <h2>I Love You!</h2>
             <p>Ab jaldi se mujhe ek pyara sa message karo aur batao ki aap uth gaye ho! 😘</p>
-            <button class="btn" onclick="restart()">Puraane Messages Fir Se Padho</button>
+            <button class="btn" onclick="restart()">LOVE YOU </button>
         </div>
     </div>
 
