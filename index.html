@@ -1,241 +1,277 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I am Sorry Meri Bachha 🥺</title>
-    <style>
-        :root {
-            --bg-color: #0f0c1b;
-            --card-bg: #1d1833;
-            --accent-pink: #ff4d79;
-            --text-gold: #ffd700;
-            --text-light: #f3effa;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I Am Sorry Meri Bachha 🥺❤️</title>
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+<style>
+:root{
+    --bg-color:#0f0c1b;
+    --card-bg:#1d1833;
+    --accent-pink:#ff4d79;
+    --text-gold:#ffd700;
+    --text-light:#f3effa;
+}
 
-        body {
-            background: linear-gradient(135deg, #0f0c1b, #24142c);
-            color: var(--text-light);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden; /* Taaki bhagte waqt screen scroll na ho */
-            padding: 15px;
-            position: relative;
-        }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
 
-        /* Yahan size bada kiya hai pure display ke hisaab se */
-        .container {
-            background: var(--card-bg);
-            border: 2px solid rgba(255, 77, 121, 0.3);
-            border-radius: 24px;
-            padding: 35px 25px;
-            max-width: 500px; /* Width badha di */
-            width: 95%; /* Mobile screen par zyada jagah gherega */
-            min-height: 70vh; /* Height bhi badha di taaki bada lage */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(255, 77, 121, 0.25);
-            position: relative;
-            z-index: 10;
-        }
+body{
+    background:linear-gradient(135deg,#0f0c1b,#24142c);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    color:white;
+    overflow:hidden;
+}
 
-        .emoji-space {
-            font-size: 5rem; /* Emoji bada kiya */
-            margin-bottom: 20px;
-            animation: float 3s ease-in-out infinite;
-        }
+.container{
+    background:var(--card-bg);
+    border:2px solid rgba(255,77,121,.4);
+    border-radius:30px;
+    padding:50px;
+    width:95%;
+    max-width:850px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,.5),
+               0 0 25px rgba(255,77,121,.2);
+}
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-12px); }
-        }
+.emoji-space{
+    font-size:6rem;
+    margin-bottom:20px;
+    animation:float 3s ease-in-out infinite;
+}
 
-        h1 {
-            color: var(--accent-pink);
-            font-size: 2.8rem; /* Heading badi ki */
-            margin-bottom: 15px;
-            text-shadow: 0 0 12px rgba(255, 77, 121, 0.6);
-        }
+@keyframes float{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-10px)}
+}
 
-        .nickname {
-            color: var(--text-gold);
-            font-weight: bold;
-        }
+h1{
+    color:var(--accent-pink);
+    font-size:3.5rem;
+    margin-bottom:20px;
+}
 
-        .message {
-            margin-bottom: 25px;
-            font-size: 1.3rem; /* Font size bada kiya */
-            line-height: 1.6;
-            color: #d1c9e3;
-        }
+.message{
+    font-size:1.5rem;
+    line-height:1.8;
+    margin-bottom:25px;
+}
 
-        .shayari-box {
-            background: rgba(255, 255, 255, 0.06);
-            border-left: 5px solid var(--text-gold);
-            padding: 20px;
-            margin: 25px 0;
-            border-radius: 6px;
-            font-style: italic;
-            line-height: 1.7;
-            font-size: 1.25rem; /* Shayari badi aur saaf dikhegi */
-            width: 100%;
-        }
+.nickname{
+    color:var(--text-gold);
+    font-weight:bold;
+}
 
-        .question-text {
-            margin-bottom: 25px; 
-            font-size: 1.4rem; 
-            font-weight: bold;
-        }
+.shayari-box{
+    background:rgba(255,255,255,.05);
+    border-left:5px solid var(--text-gold);
+    padding:25px;
+    margin:25px 0;
+    border-radius:10px;
+    font-size:1.25rem;
+    line-height:1.8;
+    font-style:italic;
+}
 
-        .btn-group {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-            max-width: 350px;
-            height: 70px;
-            position: relative;
-            margin-top: 10px;
-        }
+.question{
+    font-size:1.3rem;
+    font-weight:bold;
+    margin-bottom:20px;
+}
 
-        .btn {
-            padding: 15px 40px; /* Buttons bade kiye */
-            font-size: 1.3rem; /* Button text bada kiya */
-            font-weight: bold;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: background 0.3s, transform 0.1s;
-            outline: none;
-        }
+.btn-group{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    min-height:90px;
+}
 
-        #yesBtn {
-            background: var(--accent-pink);
-            color: white;
-            box-shadow: 0 0 15px rgba(255, 77, 121, 0.4);
-            z-index: 10;
-        }
+.btn{
+    border:none;
+    padding:18px 45px;
+    border-radius:50px;
+    font-size:1.3rem;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
 
-        #yesBtn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 25px rgba(255, 77, 121, 0.7);
-        }
+#yesBtn{
+    background:var(--accent-pink);
+    color:white;
+    box-shadow:0 0 20px rgba(255,77,121,.5);
+}
 
-        #noBtn {
-            background: #443b66;
-            color: #b5a9df;
-            z-index: 20;
-            transition: left 0.2s ease, top 0.2s ease;
-        }
+#yesBtn:hover{
+    transform:scale(1.08);
+}
 
-        /* Floating Hearts Styling */
-        .heart {
-            position: absolute;
-            color: var(--accent-pink);
-            font-size: 25px;
-            pointer-events: none;
-            animation: moveHeart 2.5s linear forwards;
-            z-index: 1;
-        }
+#noBtn{
+    background:#4f4577;
+    color:white;
+}
 
-        @keyframes moveHeart {
-            0% {
-                transform: translateY(100vh) scale(0);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-10vh) scale(1.3) translateX(calc(var(--random-x) * 1px));
-                opacity: 0;
-            }
-        }
-    </style>
+.heart{
+    position:fixed;
+    color:#ff4d79;
+    font-size:28px;
+    pointer-events:none;
+    animation:floatHeart 3s linear forwards;
+}
+
+@keyframes floatHeart{
+    from{
+        transform:translateY(100vh);
+        opacity:1;
+    }
+    to{
+        transform:translateY(-20vh);
+        opacity:0;
+    }
+}
+
+@media(max-width:768px){
+
+    .container{
+        padding:30px;
+    }
+
+    .emoji-space{
+        font-size:4.5rem;
+    }
+
+    h1{
+        font-size:2.3rem;
+    }
+
+    .message{
+        font-size:1.1rem;
+    }
+
+    .shayari-box{
+        font-size:1rem;
+    }
+
+    .btn{
+        padding:14px 30px;
+        font-size:1.1rem;
+    }
+}
+</style>
 </head>
+
 <body>
 
-    <div class="container">
-        <div class="emoji-space">🥺❤️</div>
-        <h1>I Am So Sorry</h1>
-        <p class="message">Maaf krdo na <span class="nickname">mera bachha</span>... Pata hai galti ho gayi, ab gussa thuk bhi do aur ek pyaari si smile de do!</p>
-        
-        <div class="shayari-box">
-            "Narazgi teri maut se badhkar hai mere liye,<br>
-            Tu hasti hai toh lagta hai zindagi mil gayi mujhe.<br>
-            Khata jo bhi hui maaf kar do ab,<br>
-            Mera dil dhadakta hai sirf tere liye..."
-        </div>
+<div class="container">
 
-        <p class="question-text">Kya aapne mujhe maaf kiya?</p>
+<div class="emoji-space">🥺❤️</div>
 
-        <div class="btn-group">
-            <button class="btn" id="yesBtn" onclick="forgive()">Haan ❤️</button>
-            <button class="btn" id="noBtn" onmouseover="moveButton(event)" onclick="moveButton(event)" ontouchstart="moveButton(event)">Nahi 😡</button>
-        </div>
-    </div>
+<h1>I Am So Sorry</h1>
 
-    <script>
-        function moveButton(event) {
-            if (event) event.preventDefault(); 
-            
-            const noBtn = document.getElementById('noBtn');
-            noBtn.style.position = 'fixed'; 
+<p class="message">
+Maaf krdo na <span class="nickname">mera bachha</span>...
+Pata hai galti ho gayi, ab gussa chhod do aur ek pyari si smile de do! ❤️
+</p>
 
-            const windowWidth = window.innerWidth - noBtn.offsetWidth;
-            const windowHeight = window.innerHeight - noBtn.offsetHeight;
+<div class="shayari-box">
+"Narazgi teri maut se badhkar hai mere liye,<br>
+Tu hasti hai toh lagta hai zindagi mil gayi mujhe.<br>
+Khata jo bhi hui maaf kar do ab,<br>
+Mera dil dhadakta hai sirf tere liye..."
+</div>
 
-            // Pure display par kahi bhi bhagane ke liye coordinates
-            const randomX = Math.max(15, Math.floor(Math.random() * (windowWidth - 30)));
-            const randomY = Math.max(15, Math.floor(Math.random() * (windowHeight - 30)));
+<div class="question">
+Kya aapne mujhe maaf kiya? 🥺
+</div>
 
-            noBtn.style.left = randomX + 'px';
-            noBtn.style.top = randomY + 'px';
-        }
+<div class="btn-group">
+<button class="btn" id="yesBtn" onclick="forgive()">Haan ❤️</button>
+<button class="btn" id="noBtn">Nahi 😡</button>
+</div>
 
-        function forgive() {
-            const container = document.querySelector('.container');
-            
-            const noBtn = document.getElementById('noBtn');
-            if(noBtn) noBtn.style.display = 'none';
+</div>
 
-            container.innerHTML = `
-                <div class="emoji-space">🥰🎉</div>
-                <h1>Thank You, Mera Bachha!</h1>
-                <p class="message" style="margin-top: 20px; font-size: 1.4rem;">I Love You Sabse Jyada! Aap duniya ke sabse best partner ho. Ab kabhi gussa mat hona promise! 🤝❤️</p>
-                <div class="shayari-box" style="border-left-color: #ff4d79; font-size: 1.25rem;">
-                    "Tere chehre ki muskaan sabse haseen hai,<br>
-                    Tu paas hai toh har pal behtareen hai.<br>
-                    Ab jo mil gayi hai maafi mujhe teri,<br>
-                    Sach kehta hu jannat ab yahin hai!"
-                </div>
-            `;
-            
-            setInterval(createHeart, 120); // Hearts thode aur zyada udenge ab
-        }
+<script>
 
-        function createHeart() {
-            const heart = document.createElement('div');
-            heart.classList.add('heart');
-            heart.innerHTML = '❤️';
-            heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.setProperty('--random-x', Math.floor(Math.random() * 200) - 100);
-            heart.style.animationDuration = (Math.random() * 1.5 + 1.5) + 's';
-            document.body.appendChild(heart);
+function moveButton() {
 
-            setTimeout(() => {
-                heart.remove();
-            }, 2500);
-        }
-    </script>
+    const noBtn = document.getElementById("noBtn");
+
+    const maxX = window.innerWidth - noBtn.offsetWidth;
+    const maxY = window.innerHeight - noBtn.offsetHeight;
+
+    const randomX = Math.random() * maxX;
+    const randomY = Math.random() * maxY;
+
+    noBtn.style.position = "fixed";
+    noBtn.style.left = randomX + "px";
+    noBtn.style.top = randomY + "px";
+    noBtn.style.zIndex = "9999";
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const noBtn = document.getElementById("noBtn");
+
+    noBtn.addEventListener("mouseover", moveButton);
+    noBtn.addEventListener("click", moveButton);
+    noBtn.addEventListener("touchstart", moveButton);
+});
+
+function forgive(){
+
+document.querySelector(".container").innerHTML = `
+
+<div class="emoji-space">🥰🎉</div>
+
+<h1>Thank You Meri Bachha ❤️</h1>
+
+<p class="message">
+I Love You So Much ❤️<br><br>
+Aap duniya ke sabse special ho.<br>
+Ab kabhi gussa mat hona 😘
+</p>
+
+<div class="shayari-box">
+"Teri muskaan meri pehchaan hai,<br>
+Tera saath meri jaan hai.<br>
+Maafi dekar jo dil jeet liya tune,<br>
+Sach kahu tu meri sabse pyari shaan hai."
+</div>
+
+`;
+
+setInterval(createHeart,150);
+}
+
+function createHeart(){
+
+const heart = document.createElement("div");
+
+heart.classList.add("heart");
+heart.innerHTML = "❤️";
+
+heart.style.left = Math.random()*100 + "vw";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},3000);
+
+}
+
+</script>
+
 </body>
 </html>
