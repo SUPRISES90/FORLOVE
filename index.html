@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I am Sorry Meri Baccha 🥺</title>
+    <title>I am Sorry Meri Bachha 🥺</title>
     <style>
         :root {
             --bg-color: #0f0c1b;
@@ -27,39 +27,46 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow-x: hidden;
-            padding: 20px;
+            overflow: hidden; /* Taaki bhagte waqt screen scroll na ho */
+            padding: 15px;
+            position: relative;
         }
 
+        /* Yahan size bada kiya hai pure display ke hisaab se */
         .container {
             background: var(--card-bg);
             border: 2px solid rgba(255, 77, 121, 0.3);
-            border-radius: 20px;
-            padding: 30px;
-            max-width: 450px;
-            width: 100%;
+            border-radius: 24px;
+            padding: 35px 25px;
+            max-width: 500px; /* Width badha di */
+            width: 95%; /* Mobile screen par zyada jagah gherega */
+            min-height: 70vh; /* Height bhi badha di taaki bada lage */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 77, 121, 0.2);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(255, 77, 121, 0.25);
             position: relative;
             z-index: 10;
         }
 
         .emoji-space {
-            font-size: 4rem;
-            margin-bottom: 15px;
+            font-size: 5rem; /* Emoji bada kiya */
+            margin-bottom: 20px;
             animation: float 3s ease-in-out infinite;
         }
 
         @keyframes float {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+            50% { transform: translateY(-12px); }
         }
 
         h1 {
             color: var(--accent-pink);
-            font-size: 2.2rem;
-            margin-bottom: 10px;
-            text-shadow: 0 0 10px rgba(255, 77, 121, 0.5);
+            font-size: 2.8rem; /* Heading badi ki */
+            margin-bottom: 15px;
+            text-shadow: 0 0 12px rgba(255, 77, 121, 0.6);
         }
 
         .nickname {
@@ -67,40 +74,50 @@
             font-weight: bold;
         }
 
-        .shayari-box {
-            background: rgba(255, 255, 255, 0.05);
-            border-left: 4px solid var(--text-gold);
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 4px;
-            font-style: italic;
-            line-height: 1.6;
-            font-size: 1.05rem;
-        }
-
         .message {
             margin-bottom: 25px;
-            font-size: 1.1rem;
-            line-height: 1.5;
+            font-size: 1.3rem; /* Font size bada kiya */
+            line-height: 1.6;
             color: #d1c9e3;
+        }
+
+        .shayari-box {
+            background: rgba(255, 255, 255, 0.06);
+            border-left: 5px solid var(--text-gold);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 6px;
+            font-style: italic;
+            line-height: 1.7;
+            font-size: 1.25rem; /* Shayari badi aur saaf dikhegi */
+            width: 100%;
+        }
+
+        .question-text {
+            margin-bottom: 25px; 
+            font-size: 1.4rem; 
+            font-weight: bold;
         }
 
         .btn-group {
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
             align-items: center;
-            height: 60px;
+            width: 100%;
+            max-width: 350px;
+            height: 70px;
             position: relative;
+            margin-top: 10px;
         }
 
         .btn {
-            padding: 12px 30px;
-            font-size: 1.1rem;
+            padding: 15px 40px; /* Buttons bade kiye */
+            font-size: 1.3rem; /* Button text bada kiya */
             font-weight: bold;
             border: none;
             border-radius: 50px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: background 0.3s, transform 0.1s;
             outline: none;
         }
 
@@ -108,6 +125,7 @@
             background: var(--accent-pink);
             color: white;
             box-shadow: 0 0 15px rgba(255, 77, 121, 0.4);
+            z-index: 10;
         }
 
         #yesBtn:hover {
@@ -118,15 +136,15 @@
         #noBtn {
             background: #443b66;
             color: #b5a9df;
-            position: absolute;
-            right: 40px;
+            z-index: 20;
+            transition: left 0.2s ease, top 0.2s ease;
         }
 
         /* Floating Hearts Styling */
         .heart {
             position: absolute;
             color: var(--accent-pink);
-            font-size: 20px;
+            font-size: 25px;
             pointer-events: none;
             animation: moveHeart 2.5s linear forwards;
             z-index: 1;
@@ -158,41 +176,43 @@
             Mera dil dhadakta hai sirf tere liye..."
         </div>
 
-        <p style="margin-bottom: 15px; font-weight: bold;">Kya aapne mujhe maaf kiya?</p>
+        <p class="question-text">Kya aapne mujhe maaf kiya?</p>
 
         <div class="btn-group">
             <button class="btn" id="yesBtn" onclick="forgive()">Haan ❤️</button>
-            <button class="btn" id="noBtn" onmouseover="moveButton()">Nahi 😡</button>
+            <button class="btn" id="noBtn" onmouseover="moveButton(event)" onclick="moveButton(event)" ontouchstart="moveButton(event)">Nahi 😡</button>
         </div>
     </div>
 
     <script>
-        // No button ko bhagane ka jugaad
-        function moveButton() {
+        function moveButton(event) {
+            if (event) event.preventDefault(); 
+            
             const noBtn = document.getElementById('noBtn');
-            const container = document.querySelector('.container');
-            const containerRect = container.getBoundingClientRect();
-            const btnRect = noBtn.getBoundingClientRect();
+            noBtn.style.position = 'fixed'; 
 
-            // Container ke andar hi button random jagah move karega
-            const maxX = containerRect.width - btnRect.width - 20;
-            const maxY = containerRect.height - btnRect.height - 20;
+            const windowWidth = window.innerWidth - noBtn.offsetWidth;
+            const windowHeight = window.innerHeight - noBtn.offsetHeight;
 
-            // Nayi positions calculate karna (taaki button group se bahar bhi ja sake par card me rahe)
-            const randomX = Math.floor(Math.random() * maxX) - (containerRect.width / 2 - btnRect.width);
-            const randomY = Math.floor(Math.random() * maxY) - 150; 
+            // Pure display par kahi bhi bhagane ke liye coordinates
+            const randomX = Math.max(15, Math.floor(Math.random() * (windowWidth - 30)));
+            const randomY = Math.max(15, Math.floor(Math.random() * (windowHeight - 30)));
 
-            noBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
+            noBtn.style.left = randomX + 'px';
+            noBtn.style.top = randomY + 'px';
         }
 
-        // Haan bolne par surprise
         function forgive() {
             const container = document.querySelector('.container');
+            
+            const noBtn = document.getElementById('noBtn');
+            if(noBtn) noBtn.style.display = 'none';
+
             container.innerHTML = `
                 <div class="emoji-space">🥰🎉</div>
                 <h1>Thank You, Mera Bachha!</h1>
-                <p class="message" style="margin-top: 15px;">I Love You Sabse Jyada! Aap duniya ke sabse best partner ho. Ab kabhi gussa mat hona promise! 🤝❤️</p>
-                <div class="shayari-box" style="border-left-color: #ff4d79;">
+                <p class="message" style="margin-top: 20px; font-size: 1.4rem;">I Love You Sabse Jyada! Aap duniya ke sabse best partner ho. Ab kabhi gussa mat hona promise! 🤝❤️</p>
+                <div class="shayari-box" style="border-left-color: #ff4d79; font-size: 1.25rem;">
                     "Tere chehre ki muskaan sabse haseen hai,<br>
                     Tu paas hai toh har pal behtareen hai.<br>
                     Ab jo mil gayi hai maafi mujhe teri,<br>
@@ -200,11 +220,9 @@
                 </div>
             `;
             
-            // Continuous hearts explosion
-            setInterval(createHeart, 150);
+            setInterval(createHeart, 120); // Hearts thode aur zyada udenge ab
         }
 
-        // Floating Hearts Generator
         function createHeart() {
             const heart = document.createElement('div');
             heart.classList.add('heart');
