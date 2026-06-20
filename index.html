@@ -3,250 +3,221 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Surprise for You ❤️</title>
+    <title>I am Sorry Meri Baccha 🥺</title>
     <style>
         :root {
-            --primary-pink: #ff758c;
-            --secondary-pink: #ff7eb3;
+            --bg-color: #0f0c1b;
+            --card-bg: #1d1833;
+            --accent-pink: #ff4d79;
+            --text-gold: #ffd700;
+            --text-light: #f3effa;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, var(--primary-pink) 0%, var(--secondary-pink) 100%);
-            height: 100vh;
+            background: linear-gradient(135deg, #0f0c1b, #24142c);
+            color: var(--text-light);
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow: hidden;
-            color: white;
-            text-align: center;
+            overflow-x: hidden;
+            padding: 20px;
         }
 
         .container {
-            width: 85%;
-            max-width: 400px;
-            background: rgba(255, 255, 255, 0.15);
-            padding: 40px 20px;
-            border-radius: 30px;
-            backdrop-filter: blur(15px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: var(--card-bg);
+            border: 2px solid rgba(255, 77, 121, 0.3);
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 450px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 77, 121, 0.2);
+            position: relative;
+            z-index: 10;
+        }
+
+        .emoji-space {
+            font-size: 4rem;
+            margin-bottom: 15px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        h1 {
+            color: var(--accent-pink);
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(255, 77, 121, 0.5);
+        }
+
+        .nickname {
+            color: var(--text-gold);
+            font-weight: bold;
+        }
+
+        .shayari-box {
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid var(--text-gold);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+            font-style: italic;
+            line-height: 1.6;
+            font-size: 1.05rem;
+        }
+
+        .message {
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            line-height: 1.5;
+            color: #d1c9e3;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 60px;
             position: relative;
         }
 
-        .page {
-            display: none; /* Hidden by default */
-            animation: slideIn 0.5s ease-out;
-        }
-
-        .active {
-            display: block; /* Show current page */
-        }
-
-        h2 { font-size: 2rem; margin-bottom: 15px; }
-        p { font-size: 1.1rem; line-height: 1.6; min-height: 80px; }
-
-        .icon { font-size: 60px; margin-bottom: 20px; }
-
         .btn {
-            background: white;
-            color: var(--primary-pink);
-            border: none;
             padding: 12px 30px;
-            border-radius: 50px;
+            font-size: 1.1rem;
             font-weight: bold;
-            font-size: 1rem;
+            border: none;
+            border-radius: 50px;
             cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: 0.3s;
-            margin-top: 20px;
+            transition: all 0.3s ease;
+            outline: none;
         }
 
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
+        #yesBtn {
+            background: var(--accent-pink);
+            color: white;
+            box-shadow: 0 0 15px rgba(255, 77, 121, 0.4);
+        }
 
-        /* Floating Hearts Animation */
-        .hearts-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: -1; }
+        #yesBtn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 25px rgba(255, 77, 121, 0.7);
+        }
 
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateX(50px); }
-            to { opacity: 1; transform: translateX(0); }
+        #noBtn {
+            background: #443b66;
+            color: #b5a9df;
+            position: absolute;
+            right: 40px;
+        }
+
+        /* Floating Hearts Styling */
+        .heart {
+            position: absolute;
+            color: var(--accent-pink);
+            font-size: 20px;
+            pointer-events: none;
+            animation: moveHeart 2.5s linear forwards;
+            z-index: 1;
+        }
+
+        @keyframes moveHeart {
+            0% {
+                transform: translateY(100vh) scale(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-10vh) scale(1.3) translateX(calc(var(--random-x) * 1px));
+                opacity: 0;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="hearts-bg" id="hearts-bg"></div>
-
     <div class="container">
-        <div class="page active" id="p1">
-            <div class="icon">☀️</div>
-            <h2>Utho Mere Chand!</h2>
-            <p>Duniya ne aankhein khol li hain, bas aapki muskurahat ka intezar hai. Good Morning, Love!</p>
-            <button class="btn" onclick="nextPage(2)">Next Surprise ✨</button>
+        <div class="emoji-space">🥺❤️</div>
+        <h1>I Am So Sorry</h1>
+        <p class="message">Maaf krdo na <span class="nickname">mera bachha</span>... Pata hai galti ho gayi, ab gussa thuk bhi do aur ek pyaari si smile de do!</p>
+        
+        <div class="shayari-box">
+            "Narazgi teri maut se badhkar hai mere liye,<br>
+            Tu hasti hai toh lagta hai zindagi mil gayi mujhe.<br>
+            Khata jo bhi hui maaf kar do ab,<br>
+            Mera dil dhadakta hai sirf tere liye..."
         </div>
 
-        <div class="page" id="p2">
-            <div class="icon">☕</div>
-            <h2>Ek Garam Chai...</h2>
-            <p>Kaash main wahan hota aapko ye chai aur ek pyari si 'Good Morning Hug' dene ke liye. Miss you!</p>
-            <button class="btn" onclick="nextPage(3)">Aage Dekho 👉</button>
-        </div>
+        <p style="margin-bottom: 15px; font-weight: bold;">Kya aapne mujhe maaf kiya?</p>
 
-        <div class="page" id="p3">
-            <div class="icon">🦋</div>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Surprise for You ❤️</title>
-    <style>
-        :root {
-            --primary-pink: #ff758c;
-            --secondary-pink: #ff7eb3;
-        }
-
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, var(--primary-pink) 0%, var(--secondary-pink) 100%);
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            color: white;
-            text-align: center;
-        }
-
-        .container {
-            width: 85%;
-            max-width: 400px;
-            background: rgba(255, 255, 255, 0.15);
-            padding: 40px 20px;
-            border-radius: 30px;
-            backdrop-filter: blur(15px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            position: relative;
-        }
-
-        .page {
-            display: none; /* Hidden by default */
-            animation: slideIn 0.5s ease-out;
-        }
-
-        .active {
-            display: block; /* Show current page */
-        }
-
-        h2 { font-size: 2rem; margin-bottom: 15px; }
-        p { font-size: 1.1rem; line-height: 1.6; min-height: 80px; }
-
-        .icon { font-size: 60px; margin-bottom: 20px; }
-
-        .btn {
-            background: white;
-            color: var(--primary-pink);
-            border: none;
-            padding: 12px 30px;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 1rem;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: 0.3s;
-            margin-top: 20px;
-        }
-
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
-
-        /* Floating Hearts Animation */
-        .hearts-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: -1; }
-
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateX(50px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-    </style>
-</head>
-<body>
-
-    <div class="hearts-bg" id="hearts-bg"></div>
-
-    <div class="container">
-        <div class="page active" id="p1">
-            <div class="icon">☀️</div>
-            <h2>Utho Mere Chand!</h2>
-            <p>Duniya ne aankhein khol li hain, bas aapki muskurahat ka intezar hai. Good Morning, Love!</p>
-            <button class="btn" onclick="nextPage(2)">Next Surprise ✨</button>
-        </div>
-
-        <div class="page" id="p2">
-            <div class="icon">☕</div>
-            <h2>Ek Garam Chai...</h2>
-            <p>Kaash main wahan hota aapko ye coffe aur ek pyari si 'Good Morning Hug' dene ke liye. Miss you!</p>
-            <button class="btn" onclick="nextPage(3)">Aage Dekho 👉</button>
-        </div>
-
-        <div class="page" id="p3">
-            <div class="icon">🦋</div>
-            <h2>You are Magical</h2>
-            <p>Jaise subah ki pehli kiran phoolon ko jagaati hai, waise hi aapka khayal mere din ko roshan kar deta hai.</p>
-            <button class="btn" onclick="nextPage(4)">Ek Aur Baat... ❤️</button>
-        </div>
-
-        <div class="page" id="p4">
-            <div class="icon">💍</div>
-            <h2>My Everything</h2>
-            <p>Bas ye yaad dilaana tha ki aap mere liye sabse special ho. Have an amazing day ahead!</p>
-            <button class="btn" onclick="nextPage(5)">Sabse Badi Surprise 🎁</button>
-        </div>
-
-        <div class="page" id="p5">
-            <div class="icon">💝</div>
-            <h2>I Love You!</h2>
-            <p>Ab jaldi se mujhe ek pyara sa message karo aur batao ki aap uth gaye ho! 😘</p>
-            <button class="btn" onclick="restart()">LOVE YOU </button>
+        <div class="btn-group">
+            <button class="btn" id="yesBtn" onclick="forgive()">Haan ❤️</button>
+            <button class="btn" id="noBtn" onmouseover="moveButton()">Nahi 😡</button>
         </div>
     </div>
 
     <script>
-        function nextPage(pageNumber) {
-            // Hide all pages
-            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            // Show requested page
-            document.getElementById('p' + pageNumber).classList.add('active');
+        // No button ko bhagane ka jugaad
+        function moveButton() {
+            const noBtn = document.getElementById('noBtn');
+            const container = document.querySelector('.container');
+            const containerRect = container.getBoundingClientRect();
+            const btnRect = noBtn.getBoundingClientRect();
+
+            // Container ke andar hi button random jagah move karega
+            const maxX = containerRect.width - btnRect.width - 20;
+            const maxY = containerRect.height - btnRect.height - 20;
+
+            // Nayi positions calculate karna (taaki button group se bahar bhi ja sake par card me rahe)
+            const randomX = Math.floor(Math.random() * maxX) - (containerRect.width / 2 - btnRect.width);
+            const randomY = Math.floor(Math.random() * maxY) - 150; 
+
+            noBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
         }
 
-        function restart() {
-            nextPage(1);
+        // Haan bolne par surprise
+        function forgive() {
+            const container = document.querySelector('.container');
+            container.innerHTML = `
+                <div class="emoji-space">🥰🎉</div>
+                <h1>Thank You, Mera Bachha!</h1>
+                <p class="message" style="margin-top: 15px;">I Love You Sabse Jyada! Aap duniya ke sabse best partner ho. Ab kabhi gussa mat hona promise! 🤝❤️</p>
+                <div class="shayari-box" style="border-left-color: #ff4d79;">
+                    "Tere chehre ki muskaan sabse haseen hai,<br>
+                    Tu paas hai toh har pal behtareen hai.<br>
+                    Ab jo mil gayi hai maafi mujhe teri,<br>
+                    Sach kehta hu jannat ab yahin hai!"
+                </div>
+            `;
+            
+            // Continuous hearts explosion
+            setInterval(createHeart, 150);
         }
 
-        // Floating hearts effect
+        // Floating Hearts Generator
         function createHeart() {
             const heart = document.createElement('div');
+            heart.classList.add('heart');
             heart.innerHTML = '❤️';
-            heart.style.position = 'fixed';
             heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.top = '100vh';
-            heart.style.fontSize = Math.random() * 20 + 10 + 'px';
-            heart.style.opacity = Math.random();
-            heart.style.transition = '5s linear';
-            document.getElementById('hearts-bg').appendChild(heart);
-
-            setTimeout(() => {
-                heart.style.top = '-10vh';
-            }, 100);
+            heart.style.setProperty('--random-x', Math.floor(Math.random() * 200) - 100);
+            heart.style.animationDuration = (Math.random() * 1.5 + 1.5) + 's';
+            document.body.appendChild(heart);
 
             setTimeout(() => {
                 heart.remove();
-            }, 6000);
+            }, 2500);
         }
-        setInterval(createHeart, 500);
     </script>
 </body>
 </html>
