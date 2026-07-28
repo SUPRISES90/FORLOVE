@@ -1,277 +1,450 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WEB BY NIDHI KUSH🥺❤️</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Pallavi! 💖</title>
+  
+  <!-- Tailwind CSS CDN & Fonts -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 
-<style>
-:root{
-    --bg-color:#0f0c1b;
-    --card-bg:#1d1833;
-    --accent-pink:#ff4d79;
-    --text-gold:#ffd700;
-    --text-light:#f3effa;
-}
+  <style>
+    body { font-family: 'Playfair Display', serif; }
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Segoe UI',sans-serif;
-}
-
-body{
-    background:linear-gradient(135deg,#0f0c1b,#24142c);
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:20px;
-    color:white;
-    overflow:hidden;
-}
-
-.container{
-    background:var(--card-bg);
-    border:2px solid rgba(255,77,121,.4);
-    border-radius:30px;
-    padding:50px;
-    width:95%;
-    max-width:850px;
-    text-align:center;
-    box-shadow:0 10px 30px rgba(0,0,0,.5),
-               0 0 25px rgba(255,77,121,.2);
-}
-
-.emoji-space{
-    font-size:6rem;
-    margin-bottom:20px;
-    animation:float 3s ease-in-out infinite;
-}
-
-@keyframes float{
-    0%,100%{transform:translateY(0)}
-    50%{transform:translateY(-10px)}
-}
-
-h1{
-    color:var(--accent-pink);
-    font-size:3.5rem;
-    margin-bottom:20px;
-}
-
-.message{
-    font-size:1.5rem;
-    line-height:1.8;
-    margin-bottom:25px;
-}
-
-.nickname{
-    color:var(--text-gold);
-    font-weight:bold;
-}
-
-.shayari-box{
-    background:rgba(255,255,255,.05);
-    border-left:5px solid var(--text-gold);
-    padding:25px;
-    margin:25px 0;
-    border-radius:10px;
-    font-size:1.25rem;
-    line-height:1.8;
-    font-style:italic;
-}
-
-.question{
-    font-size:1.3rem;
-    font-weight:bold;
-    margin-bottom:20px;
-}
-
-.btn-group{
-    display:flex;
-    justify-content:center;
-    gap:20px;
-    min-height:90px;
-}
-
-.btn{
-    border:none;
-    padding:18px 45px;
-    border-radius:50px;
-    font-size:1.3rem;
-    font-weight:bold;
-    cursor:pointer;
-    transition:.3s;
-}
-
-#yesBtn{
-    background:var(--accent-pink);
-    color:white;
-    box-shadow:0 0 20px rgba(255,77,121,.5);
-}
-
-#yesBtn:hover{
-    transform:scale(1.08);
-}
-
-#noBtn{
-    background:#4f4577;
-    color:white;
-}
-
-.heart{
-    position:fixed;
-    color:#ff4d79;
-    font-size:28px;
-    pointer-events:none;
-    animation:floatHeart 3s linear forwards;
-}
-
-@keyframes floatHeart{
-    from{
-        transform:translateY(100vh);
-        opacity:1;
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20%, 60% { transform: translateX(-10px); }
+      40%, 80% { transform: translateX(10px); }
     }
-    to{
-        transform:translateY(-20vh);
-        opacity:0;
-    }
-}
+    .animate-shake { animation: shake 0.5s ease-in-out; }
 
-@media(max-width:768px){
-
-    .container{
-        padding:30px;
+    @keyframes float-up {
+      0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+      10% { opacity: 0.7; }
+      90% { opacity: 0.7; }
+      100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
     }
+    .animate-float-up { animation: float-up linear infinite; }
 
-    .emoji-space{
-        font-size:4.5rem;
+    @keyframes confetti-fall {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(110vh) rotate(720deg); opacity: 0.8; }
     }
+    .animate-confetti-fall { animation: confetti-fall 3.5s ease-in forwards; }
 
-    h1{
-        font-size:2.3rem;
+    @keyframes flicker {
+      0%, 100% { transform: scaleY(1) scaleX(1); opacity: 1; }
+      50% { transform: scaleY(0.9) scaleX(1.1); opacity: 0.9; }
     }
+    .flame { animation: flicker 0.6s ease-in-out infinite; transform-origin: bottom center; }
 
-    .message{
-        font-size:1.1rem;
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      20% { transform: scale(1.15); }
     }
+    .heartbeat { animation: heartbeat 1.4s ease-in-out infinite; }
 
-    .shayari-box{
-        font-size:1rem;
+    @keyframes wiggle {
+      0%, 100% { transform: rotate(-3deg); }
+      50% { transform: rotate(3deg); }
     }
+    .wiggle { animation: wiggle 2s ease-in-out infinite; }
 
-    .btn{
-        padding:14px 30px;
-        font-size:1.1rem;
+    @keyframes pop-in {
+      0% { transform: scale(0); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
     }
-}
-</style>
+    .pop-in { animation: pop-in 0.5s ease-out forwards; }
+
+    @keyframes count-pulse {
+      0% { transform: scale(0.5); opacity: 0; }
+      50% { transform: scale(1.15); opacity: 1; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .animate-count { animation: count-pulse 0.6s ease-out forwards; }
+  </style>
 </head>
+<body class="bg-gradient-to-b from-[#ffe4ef] via-[#ffd6e8] to-[#ffc2dc] text-rose-900 min-h-screen relative overflow-x-hidden">
 
-<body>
+  <!-- Background Hearts -->
+  <div id="hearts-container" class="pointer-events-none fixed inset-0 z-0 overflow-hidden"></div>
+  <div id="confetti-container" class="pointer-events-none fixed inset-0 z-50 overflow-hidden"></div>
 
-<div class="container">
+  <!-- Background Audio Player -->
+  <audio id="bg-music" loop>
+    <source src="http://hc1.checker.in/file2link/music/file_572081.m4a/20260728_142223.m4a?filename=romantic-love-112199.mp3" type="audio/mpeg">
+  </audio>
 
-<div class="emoji-space">🥺❤️</div>
+  <!-- Music Toggle Button -->
+  <button id="music-btn" onclick="toggleMusic()" class="hidden fixed bottom-6 right-6 z-40 bg-white/90 backdrop-blur-md border-2 border-rose-300 text-rose-600 px-4 py-3 rounded-full shadow-2xl flex items-center gap-2 hover:scale-105 active:scale-95 transition-all">
+    <span id="music-icon">🎵</span> <span id="music-text" class="text-xs font-semibold">Play Song</span>
+  </button>
 
-<h1>I Am So Sorry</h1>
+  <!-- 🔒 PASSWORD OVERLAY SCREEN -->
+  <div id="lock-screen" class="fixed inset-0 z-50 bg-gradient-to-br from-rose-200 via-pink-300 to-rose-400 flex items-center justify-center px-4">
+    <div id="lock-card" class="max-w-md w-full bg-white/90 backdrop-blur-md rounded-3xl p-8 shadow-2xl border border-white text-center transition-all">
+      <div class="text-6xl mb-4 animate-bounce">🔒</div>
+      
+      <h2 class="text-3xl sm:text-4xl font-bold text-rose-700 mb-2 uppercase tracking-wide" style="font-family: 'Dancing Script', cursive; font-weight: 800;">
+        A Surprise Awaits.........
+      </h2>
+      <p class="text-rose-800/80 mb-6 text-sm">
+        Enter the secret code to unlock your birthday surprise !!
+      </p>
 
-<p class="message">
-Maaf krdo na <span class="nickname">mera bachha</span>...
-PaNIDHI❤️
-</p>
+      <form onsubmit="handleUnlock(event)" class="space-y-4">
+        <input
+          type="password"
+          id="passcode-input"
+          placeholder="Enter Passcode"
+          class="w-full px-4 py-3 rounded-xl border border-rose-300 text-center text-lg focus:outline-none focus:ring-2 focus:ring-rose-400 bg-white/80"
+          maxlength="10"
+        />
+        <button
+          type="submit"
+          class="w-full py-3 bg-gradient-to-r from-pink-500 to-rose-500 text-white font-semibold rounded-xl shadow-lg hover:brightness-105 active:scale-95 transition-all"
+        >
+          Unlock your surprise 💕
+        </button>
+      </form>
 
-<div class="shayari-box">
-"Narazgi teri maut se badhkar hai mere liye,<br>
-Tu hasti hai toh lagta hai zindagi mil gayi mujhe.<br>
-Khata jo bhi hui maaf kar do ab,<br>
-Mera dil dhadakta hai sirf tere liye..."
-</div>
+      <!-- ❌ INCORRECT PASSWORD MESSAGE -->
+      <p id="error-msg" class="hidden mt-3 text-xs font-bold text-red-600 bg-red-100/80 p-2 rounded-lg border border-red-300 animate-pulse">
+        ❌ 😒😂 INCORRECT 😂😂😂
+      </p>
 
-<div class="question">
-Kya aapne mujhe maaf kiya? 🥺
-</div>
+      <!-- 💡 HINT TEXT -->
+      <p id="hint-text" class="hidden mt-4 text-xs text-rose-700 bg-rose-50 p-2.5 rounded-lg border border-rose-200 font-medium">
+        💡 <strong>Hint:</strong> The year something special begain...
+      </p>
 
-<div class="btn-group">
-<button class="btn" id="yesBtn" onclick="forgive()">Haan ❤️</button>
-<button class="btn" id="noBtn">Nahi 😡</button>
-</div>
+      <button onclick="toggleHint()" class="mt-4 text-xs text-rose-500 hover:underline block mx-auto font-medium">
+        Need a hint?
+      </button>
+    </div>
+  </div>
 
-</div>
+  <!-- ⏱️ COUNTDOWN SCREEN (MATCHING PINK THEME) -->
+  <div id="countdown-screen" class="fixed inset-0 z-50 bg-gradient-to-b from-[#ffe4ef] via-[#ffd6e8] to-[#ffc2dc] hidden flex flex-col items-center justify-center">
+    <div class="relative z-10 flex flex-col items-center">
+      <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-full border-4 border-rose-400/80 flex items-center justify-center shadow-[0_0_35px_rgba(244,63,94,0.3)] bg-white/60 backdrop-blur-md">
+        <span id="countdown-number" class="text-7xl sm:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-rose-600 via-pink-500 to-rose-700 animate-count" style="font-family: 'Dancing Script', cursive;">
+          3
+        </span>
+      </div>
+      <p class="mt-8 text-rose-800 tracking-[0.25em] text-sm uppercase font-semibold animate-pulse">Get Ready...</p>
+    </div>
+  </div>
 
-<script>
+  <!-- 🌟 MAIN CONTENT -->
+  <main id="main-content" class="relative z-10 hidden">
+    
+    <!-- Hero Section -->
+    <section class="relative flex min-h-screen flex-col items-center justify-center px-4 text-center">
+      
+      <!-- Interactive Heart for Taps -->
+      <div class="relative cursor-pointer group" onclick="addTap()">
+        <div class="text-5xl sm:text-6xl heartbeat transition-transform group-active:scale-125">💖</div>
+        
+        <!-- Floating Taps Counter Pill -->
+        <div id="tap-badge" class="hidden absolute -top-8 left-1/2 -translate-x-1/2 whitespace-nowrap bg-rose-500/90 text-white text-xs px-3 py-1 rounded-full shadow-lg font-bold transition-all border border-pink-200">
+          <span id="tap-count">1</span> Taps sent 💖
+        </div>
+      </div>
+      
+      <p class="mt-4 mb-2 text-xs sm:text-sm tracking-[0.3em] font-semibold text-rose-500 uppercase">
+        A Very Special Day For
+      </p>
+      
+      <h1 class="text-5xl sm:text-7xl font-bold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-rose-600 via-pink-500 to-rose-700 drop-shadow-sm mb-4 px-2 py-1 leading-tight" 
+          style="font-family: 'Dancing Script', cursive;">
+        PALLAVI
+      </h1>
+      
+      <h2 class="text-2xl sm:text-4xl font-semibold text-rose-700 mb-6 flex items-center justify-center gap-2">
+        Happy Birthday <span class="text-3xl">🎂</span>
+      </h2>
+      
+      <p class="max-w-md text-base sm:text-lg text-rose-800/90 leading-relaxed italic px-2">
+        Today the world gets a little brighter and sweeter — because it's your day, Pallavi!
+      </p>
+      
+      <div class="mt-8 animate-bounce text-rose-400 text-2xl">↓</div>
+    </section>
 
-function moveButton() {
+    <!-- Cake Section -->
+    <section class="px-6 py-20 text-center">
+      <h3 class="text-4xl sm:text-5xl font-semibold text-rose-700 mb-4">Make a Wish, Pallavi 🌟</h3>
+      <p id="cake-subtitle" class="text-rose-600/80 mb-12 text-lg">Click each candle to blow it out!</p>
 
-    const noBtn = document.getElementById("noBtn");
+      <div class="mx-auto flex flex-col items-center">
+        <!-- Candles -->
+        <div id="candles-container" class="flex items-end gap-4 sm:gap-6 mb-[-8px] relative z-10"></div>
 
-    const maxX = window.innerWidth - noBtn.offsetWidth;
-    const maxY = window.innerHeight - noBtn.offsetHeight;
+        <!-- Cake Base -->
+        <div class="relative">
+          <div class="w-56 sm:w-72 h-16 sm:h-20 bg-gradient-to-b from-pink-200 to-pink-300 rounded-t-2xl border-t-4 border-white relative shadow-lg">
+            <div class="absolute inset-0 flex items-center justify-around px-4">
+              <span class="text-xs">🌸</span><span class="text-xs">✨</span><span class="text-xs">💗</span><span class="text-xs">🌟</span><span class="text-xs">🍓</span>
+            </div>
+          </div>
+          <div class="w-72 sm:w-96 h-24 sm:h-28 bg-gradient-to-b from-rose-300 to-rose-400 rounded-b-xl -mt-1 mx-auto relative shadow-2xl">
+            <div class="absolute bottom-3 inset-x-0 flex justify-around px-6">
+              <span class="text-lg">🍒</span><span class="text-lg">🌸</span><span class="text-lg">💖</span><span class="text-lg">🍓</span><span class="text-lg">🌸</span>
+            </div>
+          </div>
+          <div class="w-80 sm:w-[26rem] h-3 bg-gradient-to-b from-gray-200 to-gray-400 rounded-full mx-auto shadow-md"></div>
+        </div>
 
-    const randomX = Math.random() * maxX;
-    const randomY = Math.random() * maxY;
+        <button id="relight-btn" onclick="relightCandles()" class="hidden mt-8 px-6 py-3 rounded-full bg-white/80 border-2 border-rose-300 text-rose-700 font-medium hover:scale-105 transition-all shadow-lg">
+          🔥 Relight Candles
+        </button>
+      </div>
+    </section>
 
-    noBtn.style.position = "fixed";
-    noBtn.style.left = randomX + "px";
-    noBtn.style.top = randomY + "px";
-    noBtn.style.zIndex = "9999";
-}
+    <!-- Wish Banner -->
+    <div id="wish-banner" class="hidden px-6 pb-8">
+      <div class="mx-auto max-w-2xl pop-in rounded-3xl bg-gradient-to-r from-pink-400 via-rose-400 to-fuchsia-500 p-1 shadow-2xl">
+        <div class="rounded-3xl bg-white/95 backdrop-blur px-8 py-8 text-center">
+          <p class="text-2xl sm:text-3xl text-rose-700 font-semibold mb-2">🎉 Wishes sent to the Universe! 🎉</p>
+          <p class="text-rose-600/80 italic">May all your dreams come true, Pallavi!</p>
+        </div>
+      </div>
+    </div>
 
-document.addEventListener("DOMContentLoaded", () => {
+    <!-- Reasons Section -->
+    <section class="px-6 py-20 max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <p class="text-sm tracking-[0.3em] uppercase text-rose-500 mb-3">Special Things</p>
+        <h3 class="text-4xl sm:text-5xl font-semibold text-rose-700">Why You Are So Amazing</h3>
+      </div>
+      <div id="reasons-grid" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"></div>
+    </section>
 
-    const noBtn = document.getElementById("noBtn");
+    <!-- Gift Box Section -->
+    <section class="px-6 py-20 text-center">
+      <h3 class="text-4xl sm:text-5xl font-semibold text-rose-700 mb-12">Tap to Open Your Gift 🎁</h3>
+      <div class="mx-auto max-w-md">
+        <div id="gift-closed">
+          <button onclick="toggleGift(true)" class="group focus:outline-none">
+            <div class="wiggle relative">
+              <div class="w-48 h-48 mx-auto bg-gradient-to-br from-rose-400 to-pink-600 rounded-2xl shadow-2xl relative flex items-center justify-center">
+                <span class="text-6xl">🎁</span>
+              </div>
+              <p class="mt-4 text-rose-600 font-medium">Click to unwrap ✨</p>
+            </div>
+          </button>
+        </div>
 
-    noBtn.addEventListener("mouseover", moveButton);
-    noBtn.addEventListener("click", moveButton);
-    noBtn.addEventListener("touchstart", moveButton);
-});
+        <div id="gift-opened" class="hidden pop-in rounded-3xl bg-white/90 backdrop-blur p-8 shadow-2xl border-2 border-rose-200">
+          <div class="text-6xl mb-4">💝</div>
+          <p class="text-3xl font-bold text-rose-700 mb-2" style="font-family: 'Dancing Script', cursive;">
+            For Pallavi
+          </p>
+          <p class="text-rose-800/80 leading-relaxed mb-4">
+            You bring happiness wherever you go! Hope your day is filled with laughter, love, and sweet surprises.
+          </p>
+          <button onclick="toggleGift(false)" class="text-xs text-rose-500 underline">Close Box</button>
+        </div>
+      </div>
+    </section>
 
-function forgive(){
+    <!-- Birthday Message Section -->
+    <section class="px-6 py-20">
+      <div class="max-w-2xl mx-auto">
+        <div class="relative rounded-3xl bg-[#fff8f0] shadow-2xl p-10 sm:p-14 border border-rose-200">
+          <h3 class="text-3xl sm:text-4xl font-bold text-rose-700 mb-6 text-center" style="font-family: 'Dancing Script', cursive;">
+            Dear Pallavi,
+          </h3>
+          <p class="text-rose-900/80 leading-[32px] text-lg mb-6">
+            Wishing you the happiest of birthdays! Having someone like you in life makes everything a whole lot special.
+          </p>
+          <p class="text-rose-900/80 leading-[32px] text-lg mb-8">
+            May this year bring you endless opportunities, happy memories, and endless reasons to smile!
+          </p>
+          <div class="text-right font-semibold text-rose-700 text-xl" style="font-family: 'Dancing Script', cursive;">
+            With lots of happiness,<br />
+            <span class="text-2xl">Vivek</span>
+          </div>
 
-document.querySelector(".container").innerHTML = `
+          <!-- REDIRECT / SURPRISE PAGE BUTTON -->
+          <div class="mt-10 pt-6 border-t border-rose-200 text-center">
+            <p class="text-sm text-rose-600/80 mb-4 italic">I have one final surprise for you...</p>
+            <button onclick="openRedirectSurprise()" class="px-8 py-3 bg-gradient-to-r from-rose-500 to-pink-500 text-white font-semibold rounded-full shadow-lg hover:scale-105 active:scale-95 transition-all">
+              Go To Surprise Page 🚀
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<div class="emoji-space">🥰🎉</div>
+    <footer class="py-8 text-center text-sm text-rose-700/60">
+      Made by 💕 Vivek
+    </footer>
+  </main>
 
-<h1>NIDHI KUSH❤️</h1>
+  <!-- 🚀 SURPRISE MODAL -->
+  <div id="redirect-modal" class="fixed inset-0 z-50 bg-gradient-to-br from-pink-300 via-rose-300 to-fuchsia-400 flex items-center justify-center p-6 hidden">
+    <div class="max-w-lg w-full bg-white/95 backdrop-blur-md rounded-3xl p-8 shadow-2xl border border-white text-center pop-in relative">
+      <div class="text-6xl mb-4 animate-bounce">💖</div>
+      
+      <h2 class="text-4xl font-bold text-rose-700 mb-6" style="font-family: 'Dancing Script', cursive;">
+        A Little Message For You, Pallavi!
+      </h2>
 
-<p class="message">
-I Love You So Much ❤️<br><br>
-Aap duniya ke sabse special ho.<br>
-Ab kabhi gussa mat hona 😘
-</p>
+      <!-- 📜 PAGE 1 -->
+      <div id="shayari-page-1" class="shayari-slide">
+        <p class="text-rose-800 leading-relaxed mb-8 italic text-lg" style="font-family: 'Dancing Script', cursive;">
+          "Some souls are written in poetry,<br>
+          Painted in colors the eyes can barely see.<br>
+          You are a masterpiece in every single way,<br>
+          Wishing you the happiest Birthday today! 🌸"
+        </p>
+      </div>
 
-<div class="shayari-box">
-"Teri muskaan meri pehchaan hai,<br>
-Tera saath meri jaan hai.<br>
-Maafi dekar jo dil jeet liya tune,<br>
-Sach kahu tu meri sabse pyari shaan hai."
-</div>
+      <!-- 📜 PAGE 2 -->
+      <div id="shayari-page-2" class="shayari-slide hidden">
+        <p class="text-rose-800 leading-relaxed mb-8 italic text-lg" style="font-family: 'Dancing Script', cursive;">
+          "In a world full of temporary things,<br>
+          You are my favorite timeless feeling.<br>
+          Like a starry night and a warm gentle breeze,<br>
+          You bring a magic that puts my heart at ease! ✨"
+        </p>
+      </div>
 
-`;
+      <!-- 📜 PAGE 3 (LAST PAGE) -->
+      <div id="shayari-page-3" class="shayari-slide hidden">
+        <p class="text-rose-800 leading-relaxed mb-6 italic text-lg" style="font-family: 'Dancing Script', cursive;">
+          "The moon may shine in the darkest night,<br>
+          But your smile makes my whole world bright.<br>
+          May your day be as magical as you are! 💖"
+        </p>
+        
+        <div class="bg-rose-50 p-4 rounded-2xl border border-rose-200 mb-6 text-sm text-rose-700 font-semibold">
+          🌟 Note: ENJOY YOUR BIRTHDAY !!!!
+        </div>
 
-setInterval(createHeart,150);
-}
+        <div class="space-y-3 mb-4">
+          <a id="external-link-btn" href="https://youtu.be/i2ceSzs2y4Q?t=10" target="_blank" class="block w-full py-3 bg-rose-500 text-white font-semibold rounded-xl shadow-md hover:bg-rose-600 transition-all">
+            Open the Link 🔗
+          </a>
+        </div>
+      </div>
 
-function createHeart(){
+      <!-- 🔘 CLEAN BUTTONS -->
+      <div class="flex justify-center items-center gap-4 mt-2">
+        <button id="prev-btn" onclick="nextShayari(-1)" class="px-6 py-2.5 bg-rose-100 text-rose-700 text-sm font-semibold rounded-xl hover:bg-rose-200 transition-all invisible">
+          ← Previous
+        </button>
+        <button id="next-btn" onclick="nextShayari(1)" class="px-6 py-2.5 bg-rose-500 text-white text-sm font-semibold rounded-xl hover:bg-rose-600 shadow-md transition-all">
+          Next →
+        </button>
+      </div>
 
-const heart = document.createElement("div");
+      <button onclick="closeRedirectSurprise()" class="block w-full mt-6 py-2 text-rose-500 text-sm hover:underline">
+        Go Back to Birthday Site
+      </button>
 
-heart.classList.add("heart");
-heart.innerHTML = "❤️";
+    </div>
+  </div>
 
-heart.style.left = Math.random()*100 + "vw";
+  <!-- JavaScript -->
+  <script>
+    const PASSCODE = "2011"; 
+    let candlesBlown = [false, false, false, false, false];
+    let musicPlaying = false;
+    let currentShayari = 1;
+    let tapCount = 0;
 
-document.body.appendChild(heart);
+    function handleUnlock(e) {
+      e.preventDefault();
+      const input = document.getElementById('passcode-input').value;
+      const card = document.getElementById('lock-card');
+      const errorMsg = document.getElementById('error-msg');
 
-setTimeout(()=>{
-heart.remove();
-},3000);
+      if (input.trim() === PASSCODE) {
+        errorMsg.classList.add('hidden');
+        document.getElementById('lock-screen').classList.add('hidden');
+        createHearts(); // Start background hearts early
+        startCountdown();
+      } else {
+        errorMsg.classList.remove('hidden');
+        card.classList.add('animate-shake');
+        setTimeout(() => card.classList.remove('animate-shake'), 600);
+      }
+    }
 
-}
+    function startCountdown() {
+      const countdownScreen = document.getElementById('countdown-screen');
+      const countNum = document.getElementById('countdown-number');
+      countdownScreen.classList.remove('hidden');
 
-</script>
+      let count = 3;
+      countNum.innerText = count;
 
-</body>
-</html>
+      const timer = setInterval(() => {
+        count--;
+        if (count > 0) {
+          countNum.innerText = count;
+          countNum.classList.remove('animate-count');
+          void countNum.offsetWidth; 
+          countNum.classList.add('animate-count');
+        } else {
+          clearInterval(timer);
+          countdownScreen.classList.add('hidden');
+          document.getElementById('main-content').classList.remove('hidden');
+          document.getElementById('music-btn').classList.remove('hidden');
+          playMusic();
+          initApp();
+        }
+      }, 1000);
+    }
+
+    function addTap() {
+      tapCount++;
+      const badge = document.getElementById('tap-badge');
+      const countTxt = document.getElementById('tap-count');
+      countTxt.innerText = tapCount;
+      badge.classList.remove('hidden');
+      
+      badge.classList.remove('pop-in');
+      void badge.offsetWidth;
+      badge.classList.add('pop-in');
+    }
+
+    function toggleHint() {
+      document.getElementById('hint-text').classList.toggle('hidden');
+    }
+
+    function playMusic() {
+      const audio = document.getElementById('bg-music');
+      audio.play().then(() => {
+        musicPlaying = true;
+        document.getElementById('music-icon').innerText = '⏸️';
+        document.getElementById('music-text').innerText = 'Pause Song';
+      }).catch(() => {
+        musicPlaying = false;
+      });
+    }
+
+    function toggleMusic() {
+      const audio = document.getElementById('bg-music');
+      if (musicPlaying) {
+        audio.pause();
+        musicPlaying = false;
+        document.getElementById('music-icon').innerText = '🎵';
+        document.getElementById('music-text').innerText = 'Play Song';
+      } else {
+        playMusic();
+      }
+    }
+
+    function initApp() {
+      renderCandles();
+      renderReasons();
+    }
+
+    function createHearts() {
+      const container = document.getElementById('hearts-container');
+      if (container.children.length > 0) return; //
